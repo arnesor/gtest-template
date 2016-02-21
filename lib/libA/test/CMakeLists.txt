@@ -3,5 +3,5 @@ set(LIBATEST_SOURCES
 )
 
 add_executable(libatest ${LIBATEST_SOURCES})
-target_link_libraries(libatest gtest_main)
+target_link_libraries(libatest liba gtest_main)
 add_test(LibATest libatest)

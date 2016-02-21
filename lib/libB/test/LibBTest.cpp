@@ -1,11 +1,10 @@
 #include "gtest/gtest.h"
-#include "LibA.h"
-
+#include "LibB.h"
 
 // Simple dummy test
-TEST(LibA, dummy)
+TEST(LibB, dummy)
 {
-   LibA a;
+   LibB b;
    EXPECT_EQ(1, 1);
 }
 
