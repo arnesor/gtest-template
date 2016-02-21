@@ -9,3 +9,7 @@ TEST(LibA, dummy)
    EXPECT_EQ(1, 1);
 }
 
+int pullInLibraryLibATest()
+{
+   return 0;
+}
