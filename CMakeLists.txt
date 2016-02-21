@@ -38,5 +38,5 @@ target_include_directories(gmock_main INTERFACE "${gmock_SOURCE_DIR}/include")
 
 # Adding other subdirectories
 add_subdirectory (lib)
-#add_subdirectory (test)
+add_subdirectory (test)
 
