@@ -35,6 +35,14 @@ add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_
 target_include_directories(gtest      INTERFACE "${gtest_SOURCE_DIR}/include")
 target_include_directories(gmock_main INTERFACE "${gmock_SOURCE_DIR}/include")
 
+# Setup for regression test.
+# Regression test is done by compiling test sources once more in the regression
+# test, since linking test libraries does not work well with the Google Test
+# framework. The setup includes a custom function and clears the global
+# REGRESSIONTEST_SOURCES variable. Variables are by default local in CMake, so 
+# have to use CACHE INTERNAL to simulate global variable).
+include(build/CMakeFunctions.cmake)
+set(REGRESSIONTEST_SOURCES "" CACHE INTERNAL "REGRESSIONTEST_SOURCES") 
 
 # Adding other subdirectories
 add_subdirectory (lib)

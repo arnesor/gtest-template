@@ -2,10 +2,13 @@ set(LIBATEST_SOURCES
    LibATest.cpp
 )
 
-add_library (libatest STATIC ${LIBATEST_SOURCES})
-target_include_directories(libatest PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(libatest liba gtest)
+# Add files to regression test with absolute path. Need CACHE INTERNAL to use as global variable.
+prepend(SOURCES_WITH_ABS_PATH ${CMAKE_CURRENT_SOURCE_DIR} ${LIBATEST_SOURCES})
+set(REGRESSIONTEST_SOURCES ${REGRESSIONTEST_SOURCES} ${SOURCES_WITH_ABS_PATH} CACHE INTERNAL "REGRESSIONTEST_SOURCES")
 
-add_executable(libatestexe ${LIBATEST_SOURCES})
-target_link_libraries(libatestexe libatest gtest_main)
-add_test(LibATest libatestexe)
+# Debug 
+# MESSAGE(STATUS "REGRESSIONTEST_SOURCES after LIBATEST: " ${REGRESSIONTEST_SOURCES})
+
+add_executable(libatest ${LIBATEST_SOURCES})
+target_link_libraries(libatest liba gtest_main)
+add_test(LibATest libatest)
