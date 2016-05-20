@@ -20,3 +20,8 @@ or for Eclipse:
 cmake -G"Eclipse CDT4 - Unix Makefiles" -DCMAKE_ECLIPSE_GENERATE_SOURCE_PROJECT=TRUE -DCMAKE_BUILD_TYPE=Debug ../gtest-template
 ```
 
+or for Visual Studio 2015:
+
+```
+cmake -G"Visual Studio 14 2015 Win64" ..\gtest-template
+```
